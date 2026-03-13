@@ -68,7 +68,7 @@ Parse the user's description and extract:
 | Field | How to detect | Example |
 |-------|--------------|---------|
 | Main scene | Natural language description | "standing in a bamboo forest" |
-| Art style | Keywords like "manga", "oil painting", "pixel art" | `--style 漫画风格` |
+| Art style | Keywords like "manga", "oil painting", "pixel art" | `--style manga` |
 | Aspect ratio | "portrait", "landscape", "square", "tall", or inferred from scene | `--size portrait` |
 | Extra references | User shares image URLs or UUIDs | `--ref <uuid>` |
 
@@ -87,7 +87,7 @@ If the user's intent is ambiguous, default to `portrait`.
 ## 2. Generation
 
 ```bash
-node imagegen.js gen "<prompt>" --char "{name}" --pic "{picture_uuid}" --size portrait --style "漫画风格"
+node imagegen.js gen "<prompt>" --char "{name}" --pic "{picture_uuid}" --size portrait --style "manga"
 # stderr: 🔍 Looking up character: {name}...
 # stderr: ✅ Character resolved: {name}
 # stderr: 🎨 Generating image (576×768)...
@@ -186,7 +186,7 @@ node imagegen.js gen "<prompt>" \
   --char  "<character name>" \   # optional: auto-resolved to character vtoken
   --pic   "<picture uuid>"  \    # optional: character reference image
   --size  portrait           \   # portrait | landscape | square | tall
-  --style "漫画风格"          \   # optional, repeatable
+  --style "manga"             \   # optional, repeatable
   --ref   "<artifact uuid>"      # optional extra reference, repeatable
 ```
 

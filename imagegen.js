@@ -12,7 +12,7 @@
  *   --pic  <uuid>         Character picture UUID (used as reference)
  *   --ref  <uuid>         Extra reference picture UUID (repeatable)
  *   --size portrait|landscape|square|tall   (default: portrait = 576×768)
- *   --style <name>        Style element, e.g. "漫画风格" (repeatable)
+ *   --style <name>        Style element, e.g. "manga" (repeatable)
  *
  * Token resolved from: NETA_TOKEN env → ~/.openclaw/workspace/.env → clawhouse .env
  */
