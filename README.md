@@ -1,3 +1,5 @@
+![banner](./banner.webp)
+
 ---
 name: image-generation-claw-skill
 description: |
