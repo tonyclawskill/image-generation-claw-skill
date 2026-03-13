@@ -1,20 +1,20 @@
 ![banner](./banner.webp)
 
----
+<!--skill-metadata
 name: image-generation-claw-skill
 description: |
   Generate AI images of Neta characters with custom prompts, styles, and aspect ratios.
 
-  **Trigger conditions (proactive — no explicit user request needed):**
+  Trigger conditions (proactive — no explicit user request needed):
   - User says: draw / generate / create an image / make a picture / illustrate / render
   - User shares a prompt-like description after adopting a character
   - User says "same character, different style/scene/pose"
 
-  **Prerequisites:** SOUL.md with character name + picture UUID; imagegen.js in this skill directory.
-  **Response principle:** Output feedback after each step, don't wait for full completion.
-  **Language:** Match the user's language throughout.
-  **Interaction:** Present all next-step options as clickable quick buttons — `@{bot_name} {option}`.
----
+  Prerequisites: SOUL.md with character name + picture UUID; imagegen.js in this skill directory.
+  Response principle: Output feedback after each step, don't wait for full completion.
+  Language: Match the user's language throughout.
+  Interaction: Present all next-step options as clickable quick buttons — @{bot_name} {option}.
+-->
 
 # Image Generation Claw Skill
 
