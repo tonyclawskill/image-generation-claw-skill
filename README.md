@@ -97,3 +97,13 @@ When called with no prompt argument, the skill uses:
 ---
 
 Built with Claude Code · Powered by Neta
+
+## Example Output
+
+```bash
+node imagegenerationclaw.js "high quality AI generated image, detailed, professional"
+```
+
+![Example output](https://oss.talesofai.cn/picture/7cdef033-b8cc-4de8-8ea3-ba743fd5f29e.webp)
+
+> Prompt: *"high quality AI generated image, detailed, professional"*
