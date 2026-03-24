@@ -1,6 +1,6 @@
 ---
 name: image-generation-claw-skill
-description: Generate ai image generation skill images with AI — powered by Neta talesofai API.
+description: Generate image generation claw images using the Neta AI API. Returns a direct image URL.
 tools: Bash
 ---
 
@@ -18,7 +18,17 @@ node imagegenerationclaw.js "your description here"
 
 ## Options
 - `--size` — `portrait`, `landscape`, `square`, `tall` (default: `portrait`)
-- `--style` — `anime`, `cinematic`, `realistic` (default: `anime`)
+
+
+## Token
+
+Requires a Neta API token via `NETA_TOKEN` env var or `--token` flag.
+- Global: <https://www.neta.art/open/>
+- China:  <https://app.nieta.art/security>
+
+```bash
+export NETA_TOKEN=your_token_here
+```
 
 ## Install
 ```bash
