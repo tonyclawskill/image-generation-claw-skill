@@ -72,7 +72,7 @@ const body = {
   rawPrompt: [{ type: "freetext", value: prompt, weight: 1 }],
   width,
   height,
-  meta: { entrance: "PICTURE,VERSE" },
+  meta: { entrance: "PICTURE,CLI" },
   context_model_series: "8_image_edit",
 };
 
@@ -81,7 +81,7 @@ if (ref) {
 }
 
 // --- Submit image generation task ---
-const makeRes = await fetch("https://api.talesofai.cn/v3/make_image", {
+const makeRes = await fetch("https://api.talesofai.com/v3/make_image", {
   method: "POST",
   headers: HEADERS,
   body: JSON.stringify(body),
@@ -114,7 +114,7 @@ for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
   await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
 
   const pollRes = await fetch(
-    `https://api.talesofai.cn/v1/artifact/task/${task_uuid}`,
+    `https://api.talesofai.com/v1/artifact/task/${task_uuid}`,
     { headers: HEADERS }
   );
 

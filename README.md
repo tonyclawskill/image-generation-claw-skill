@@ -62,22 +62,18 @@ The script prints a single image URL to stdout on success.
 
 ## Token Setup
 
-The skill resolves your `NETA_TOKEN` in this order:
+Get your Neta API token from the [Neta Open Portal](https://www.neta.art/open/).
 
-1. `--token` CLI flag
-2. `NETA_TOKEN` environment variable
-3. `~/.openclaw/workspace/.env` (line matching `NETA_TOKEN=...`)
-4. `~/developer/clawhouse/.env` (line matching `NETA_TOKEN=...`)
-
-**Recommended — add to your shell profile:**
+Set it via environment variable:
 ```bash
 export NETA_TOKEN=your_token_here
 ```
 
-**Or add to `~/.openclaw/workspace/.env`:**
+Or pass inline:
+```bash
+node imagegenerationclaw.js "your prompt" --token your_token_here
 ```
-NETA_TOKEN=your_token_here
-```
+
 
 ---
 
@@ -96,14 +92,4 @@ When called with no prompt argument, the skill uses:
 
 ---
 
-Built with Claude Code · Powered by Neta
-
-## Example Output
-
-```bash
-node imagegenerationclaw.js "high quality AI generated image, detailed, professional"
-```
-
-![Example output](https://oss.talesofai.cn/picture/7cdef033-b8cc-4de8-8ea3-ba743fd5f29e.webp)
-
-> Prompt: *"high quality AI generated image, detailed, professional"*
+Built with [Claude Code](https://claude.ai/claude-code) · Powered by [Neta](https://www.neta.art/) · [API Docs](https://www.neta.art/open/)

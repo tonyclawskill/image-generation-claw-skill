@@ -1,1 +1,7 @@
-{"name":"image-generation-claw-skill","version":"1.0.0","type":"module","description":"Image Generation Skill — AI-powered ai image generation skill","license":"MIT"}
+{
+  "name": "image-generation-claw-skill",
+  "version": "1.0.1",
+  "type": "module",
+  "description": "Image Generation Skill — AI-powered ai image generation skill",
+  "license": "MIT"
+}
