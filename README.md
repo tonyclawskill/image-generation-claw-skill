@@ -64,36 +64,44 @@ The script prints a single image URL to stdout on success.
 
 [Neta](https://www.neta.art/) (by TalesofAI) is an AI image and video generation platform with a powerful open API. It uses a **credit-based system (AP — Action Points)** where each image generation costs a small number of credits. Subscriptions are available for heavier usage.
 
-### Register
+### Register & Get Token
 
-| Region | Sign up | Get token |
-|--------|---------|-----------|
-| Global | [neta.art](https://www.neta.art/) | [Open Portal → API Token](https://www.neta.art/open/) |
-| China  | [nieta.art](https://app.nieta.art/) | [Security Settings](https://app.nieta.art/security) |
+| Region | Sign up | Get API token |
+|--------|---------|---------------|
+| Global | [neta.art](https://www.neta.art/) | [neta.art/open](https://www.neta.art/open/) |
+| China  | [nieta.art](https://app.nieta.art/) | [nieta.art/security](https://app.nieta.art/security) |
 
-New accounts receive free credits to get started.
+New accounts receive free credits to get started. No credit card required to try.
 
 ### Pricing
 
-Neta uses a pay-per-generation credit model. View current plans and credit packages on the [pricing page](https://www.neta.art/pricing).
+Neta uses a pay-per-generation credit model. View current plans on the [pricing page](https://www.neta.art/pricing).
 
-- Free tier: limited credits on signup
-- Subscription: monthly AP allowance via Stripe
-- One-time packs: top up credits as needed
+- **Free tier:** limited credits on signup — enough to test
+- **Subscription:** monthly AP allowance via Stripe
+- **Credit packs:** one-time top-up as needed
 
-### Get your API token
-
-1. Sign in at [neta.art/open](https://www.neta.art/open/) (global) or [nieta.art/security](https://app.nieta.art/security) (China)
-2. Generate a new API token
-3. Set it as `NETA_TOKEN` in your environment or pass via `--token`
+### Set up your token
 
 ```bash
-export NETA_TOKEN=your_token_here
-node imagegenerationclaw.js "your prompt"
+# Step 1 — get your token:
+#   Global: https://www.neta.art/open/
+#   China:  https://app.nieta.art/security
 
-# or inline
+# Step 2 — set it
+export NETA_TOKEN=your_token_here
+
+# Step 3 — run
+node imagegenerationclaw.js "your prompt"
+```
+
+Or pass it inline:
+```bash
 node imagegenerationclaw.js "your prompt" --token your_token_here
 ```
+
+> **API endpoint:** defaults to `api.talesofai.cn` (works with all token types).  
+> Override with `NETA_API_URL=https://api.talesofai.cn` if using a global Open Platform token.
 
 
 ---
