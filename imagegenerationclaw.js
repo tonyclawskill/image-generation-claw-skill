@@ -84,7 +84,7 @@ if (ref) {
 }
 
 // --- Submit image generation task ---
-const makeRes = await fetch(`${process.env.NETA_API_URL || 'https://api.talesofai.cn'}/v3/make_image`, {
+const makeRes = await fetch(`${process.env.NETA_API_URL || 'https://api.talesofai.com'}/v3/make_image`, {
   method: "POST",
   headers: HEADERS,
   body: JSON.stringify(body),
@@ -117,7 +117,7 @@ for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
   await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
 
   const pollRes = await fetch(
-    `${process.env.NETA_API_URL || 'https://api.talesofai.cn'}/v1/artifact/task/${task_uuid}`,
+    `${process.env.NETA_API_URL || 'https://api.talesofai.com'}/v1/artifact/task/${task_uuid}`,
     { headers: HEADERS }
   );
 
