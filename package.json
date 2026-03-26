@@ -3,5 +3,14 @@
   "version": "1.0.5",
   "type": "module",
   "description": "Image Generation Skill — AI-powered ai image generation skill",
-  "license": "MIT"
+  "license": "MIT",
+  "clawhub": {
+    "env": [
+      {
+        "name": "NETA_TOKEN",
+        "description": "Neta AI API token. Get it at https://www.neta.art/open/",
+        "required": true
+      }
+    ]
+  }
 }

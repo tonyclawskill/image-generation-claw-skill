@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-import { readFileSync } from "fs";
-import { homedir } from "os";
-import { join } from "path";
 
 // --- CLI parsing ---
 const args = process.argv.slice(2);
