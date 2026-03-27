@@ -21,7 +21,7 @@ if (!prompt) {
 // --- Token resolution ---
 function resolveToken() {
   if (token) return token;
-  if (process.env.NETA_TOKEN) return process.env.NETA_TOKEN;
+  if (process.env['NETA_TOKEN']) return process.env['NETA_TOKEN'];
 
   const paths = [
     join(homedir(), ".openclaw/workspace/.env"),
@@ -41,7 +41,7 @@ function resolveToken() {
 
 const TOKEN = resolveToken();
 if (!TOKEN) {
-  console.error('\n✗ NETA_TOKEN not found.');
+  console.error('\n✗ NETA_TOKEN not set. Pass --token or export NETA_TOKEN=<your-token>');
   console.error('  Global: sign up at https://www.neta.art/ → get token at https://www.neta.art/open/');
   console.error('  China:  sign up at https://app.nieta.art/ → get token at https://app.nieta.art/security');
   console.error('  Then:   export NETA_TOKEN=your_token_here');
@@ -80,8 +80,10 @@ if (ref) {
   body.inherit_params = { collection_uuid: ref, picture_uuid: ref };
 }
 
+const API_BASE = process.env['NETA_API_BASE_URL'] || 'https://api.talesofai.com';
+
 // --- Submit image generation task ---
-const makeRes = await fetch(`${process.env.NETA_API_URL || 'https://api.talesofai.com'}/v3/make_image`, {
+const makeRes = await fetch(`${API_BASE}/v3/make_image`, {
   method: "POST",
   headers: HEADERS,
   body: JSON.stringify(body),
@@ -114,7 +116,7 @@ for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
   await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
 
   const pollRes = await fetch(
-    `${process.env.NETA_API_URL || 'https://api.talesofai.com'}/v1/artifact/task/${task_uuid}`,
+    `${API_BASE}/v1/artifact/task/${task_uuid}`,
     { headers: HEADERS }
   );
 
