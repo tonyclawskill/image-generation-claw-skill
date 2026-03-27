@@ -24,10 +24,6 @@ function resolveToken() { return tokenFlag; }
 const TOKEN = resolveToken();
 if (!TOKEN) {
   console.error('\n✗ Token required. Pass via: --token YOUR_TOKEN');
-console.error('  Get yours at: https://www.neta.art/open/');
-  console.error('  Global: sign up at https://www.neta.art/ → get token at https://www.neta.art/open/');
-  console.error('  China:  sign up at https://app.nieta.art/ → get token at https://app.nieta.art/security');
-  console.error('  Then:   export NETA_TOKEN=your_token_here');
   process.exit(1);
 }
 
@@ -55,7 +51,7 @@ const body = {
   rawPrompt: [{ type: "freetext", value: prompt, weight: 1 }],
   width,
   height,
-  meta: { entrance: "PICTURE,CLI" },
+  meta: { entrance: "PICTURE,VERSE" },
   context_model_series: "8_image_edit",
 };
 
@@ -64,7 +60,7 @@ if (ref) {
 }
 
 // --- Submit image generation task ---
-const makeRes = await fetch(`https://api.talesofai.com/v3/make_image`, {
+const makeRes = await fetch("https://api.talesofai.cn/v3/make_image", {
   method: "POST",
   headers: HEADERS,
   body: JSON.stringify(body),
@@ -97,7 +93,7 @@ for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
   await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
 
   const pollRes = await fetch(
-    `https://api.talesofai.com/v1/artifact/task/${task_uuid}`,
+    `https://api.talesofai.cn/v1/artifact/task/${task_uuid}`,
     { headers: HEADERS }
   );
 
