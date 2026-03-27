@@ -26,7 +26,6 @@ import { resolve }      from 'node:path';
 const BASE = 'https://api.talesofai.cn';
 
 function getToken() {
-  if (process.env.NETA_TOKEN) return process.env.NETA_TOKEN;
   const envFiles = [
     resolve(homedir(), '.openclaw/workspace/.env'),
     resolve(homedir(), 'developer/clawhouse/.env'),
