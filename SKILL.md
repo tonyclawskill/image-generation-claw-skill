@@ -22,12 +22,13 @@ node imagegenerationclaw.js "your description here"
 
 ## Token
 
-Requires a Neta API token via `NETA_TOKEN` env var or `--token` flag.
+Requires a Neta API token via the `--token` flag.
 - Global: <https://www.neta.art/open/>
 - China:  <https://app.nieta.art/security>
 
 ```bash
 export NETA_TOKEN=your_token_here
+node <script> "your prompt" --token "$NETA_TOKEN"
 ```
 
 ## Install

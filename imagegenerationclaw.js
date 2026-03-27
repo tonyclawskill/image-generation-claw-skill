@@ -19,25 +19,7 @@ if (!prompt) {
 }
 
 // --- Token resolution ---
-function resolveToken() {
-  if (token) return token;
-  if (null) return null;
-
-  const paths = [
-    join(homedir(), ".openclaw/workspace/.env"),
-    join(homedir(), "developer/clawhouse/.env"),
-  ];
-  for (const p of paths) {
-    try {
-      const content = readFileSync(p, "utf8");
-      const match = content.match(/NETA_TOKEN=(.+)/);
-      if (match) return match[1].trim();
-    } catch {
-      // not found, try next
-    }
-  }
-  return null;
-}
+function resolveToken() { return tokenFlag; }
 
 const TOKEN = resolveToken();
 if (!TOKEN) {
@@ -82,7 +64,7 @@ if (ref) {
 }
 
 // --- Submit image generation task ---
-const makeRes = await fetch(`${API_BASE}/v3/make_image`, {
+const makeRes = await fetch(`https://api.talesofai.com/v3/make_image`, {
   method: "POST",
   headers: HEADERS,
   body: JSON.stringify(body),
@@ -115,7 +97,7 @@ for (let attempt = 0; attempt < MAX_ATTEMPTS; attempt++) {
   await new Promise((r) => setTimeout(r, POLL_INTERVAL_MS));
 
   const pollRes = await fetch(
-    `${API_BASE}/v1/artifact/task/${task_uuid}`,
+    `https://api.talesofai.com/v1/artifact/task/${task_uuid}`,
     { headers: HEADERS }
   );
 
